@@ -54,7 +54,7 @@ while True:
             print("Final")
             print(winner + " won!")
 
-        what_next = input("Enter 1 EXIT or any key to restart:\n")
+        what_next = input("\nEnter 1 EXIT or any key to restart:\n")
         if what_next == "1":
             break
 
