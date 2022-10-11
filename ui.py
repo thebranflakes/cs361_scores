@@ -29,6 +29,27 @@ while True:
         if team_choice == "2":
             break
 
+    if team_choice in NFL:
+        quarter = random.randint(1, 5)
+        opponent = NFL[random.randint(0, 31)]
+        team_score = random.randint(2, 70)
+        opp_score = random.randint(2, 70)
+        winner = ""
+        if team_score > opp_score:
+            winner = team_choice
+        if opp_score > team_score:
+            winner = opponent
+        while opponent == team_choice:
+            opponent = NFL[random.randint(0, 31)]
+        print(team_choice + ": " + str(team_score))
+        print(opponent + ": " + str(opp_score))
+        if quarter in [1, 2, 3, 4]:
+            print("Quarter: " + str(quarter))
+            print(winner + " is winning!")
+        if quarter > 4:
+            print("Final")
+            print(winner + " won!")
+        break
 
 
 
