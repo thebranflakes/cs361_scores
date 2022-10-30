@@ -1,4 +1,5 @@
 import random
+import time
 
 NFL = ["ARI", "ATL", "BAL", "BUF", "CAR", "CHI", "CIN", "CLE", "DAL", "DEN", "DET",
        "GB", "HOU", "IND", "JAX", "KC", "MIA", "MIN", "NE", "NO", "NYG", "NYJ", "LV",
@@ -9,6 +10,8 @@ NBA = ['ATL', 'BOS', 'BKN', 'CHA', 'CHI', 'CLE', 'DET', 'GS', 'IND', 'LAL', 'MIA
        'DAL', 'DEN', 'HOU', 'LAC', 'MEM', 'MIL', 'MIN', 'PHI']
 
 while True:
+    microservice = open(r"C:\Users\Brandon\PycharmProjects\cs361_scores\micro.txt", "r+")
+
     team_choice = ""
     league_input = input("Enter 1 for NBA scores or 2 for NFL scores (You will need to pick a team)\n"
                          "(New Feature) Get a score fast! Random NBA or NFL score, just enter 3!\n")
@@ -68,7 +71,6 @@ while True:
                             "Press 1 for List of teams\n"
                             "Press 2 to restart\n")
 
-
         while team_choice not in NFL:
             if team_choice == "1":
                 print(NFL)
@@ -106,7 +108,13 @@ while True:
                 break
 
     if league_input == "3":
-        print("Here is your random score!")
+        print("Receiving Data from Microservice...\n")
+        microservice.write("micro")
+        time.sleep(2)
+        print(microservice.read())
+        micro_num = microservice.read()
+        print("Data Received, Generating Score...\n")
+        print(micro_num)
         what_next = input("\nEnter 1 to EXIT or any other key to restart:\n")
         if what_next == "1":
             break
