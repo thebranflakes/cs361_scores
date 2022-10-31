@@ -10,7 +10,6 @@ NBA = ['ATL', 'BOS', 'BKN', 'CHA', 'CHI', 'CLE', 'DET', 'GS', 'IND', 'LAL', 'MIA
        'DAL', 'DEN', 'HOU', 'LAC', 'MEM', 'MIL', 'MIN', 'PHI']
 
 while True:
-    microservice = open(r"C:\Users\Brandon\PycharmProjects\cs361_scores\micro.txt", "r+")
 
     team_choice = ""
     league_input = input("Enter 1 for NBA scores or 2 for NFL scores (You will need to pick a team)\n"
@@ -108,13 +107,27 @@ while True:
                 break
 
     if league_input == "3":
+        # Open file for writing
+        microservice = open("micro.txt", "w")
+        time.sleep(1)
         print("Receiving Data from Microservice...\n")
+
+        # Write micro into txt file
         microservice.write("micro")
-        time.sleep(2)
-        print(microservice.read())
+        time.sleep(3)
+        microservice.close()
+
+        # Open file for reading
+        microservice = open("micro.txt", "r")
+        time.sleep(3)
         micro_num = microservice.read()
+        microservice.close()
+
         print("Data Received, Generating Score...\n")
+
+        # print out the number recieved
         print(micro_num)
+        
         what_next = input("\nEnter 1 to EXIT or any other key to restart:\n")
         if what_next == "1":
             break

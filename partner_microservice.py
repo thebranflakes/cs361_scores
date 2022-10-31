@@ -5,7 +5,7 @@ import time
 file = open("micro.txt", "r")
 key = random.randint(1000, 50000)
 
-while file.readline() != 'micro\n':
+while file.readline() != 'micro':
     file.seek(0)
     time.sleep(2)
 
