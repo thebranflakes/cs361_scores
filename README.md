@@ -1,2 +1,2 @@
 # cs361_scores!
-[image](https://user-images.githubusercontent.com/73903526/198918826-00d00d93-d781-4035-8359-516d6138dd4b.png)
+![unknown](https://user-images.githubusercontent.com/73903526/198918937-aeda6f1d-8564-4d1b-b083-283aebd69a7d.png)
