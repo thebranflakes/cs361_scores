@@ -81,14 +81,41 @@ def micro():
 
     # Open file for reading
     microservice = open("micro.txt", "r")
-    time.sleep(3)
+    time.sleep(5)
     micro_num = microservice.read()
     microservice.close()
 
     print("Data Received, Generating Score...\n")
+    league = True
+    lg_max = 0
+    if int(micro_num) % 2 == 0:
+        league = NFL
+        lg_max = 60
+    if int(micro_num) % 2 != 0:
+        league = NBA
+        lg_max = 120
 
     # print out the number received
-    print(micro_num)
+    quarter = random.randint(1, 5)
+    opponent = league[random.randint(0, len(league) - 1)]
+    team_score = random.randint(2, lg_max)
+    opp_score = random.randint(2, lg_max)
+    winner = ""
+
+    if team_score > opp_score:
+        winner = league[random.randint(0, len(league))]
+    if opp_score > team_score:
+        winner = league[random.randint(0, len(league))]
+
+    print(winner + ": " + str(team_score))
+    print(opponent + ": " + str(opp_score))
+
+    if quarter in [1, 2, 3, 4]:
+        print("Quarter: " + str(quarter))
+        print(winner + " is winning!")
+    if quarter > 4:
+        print("Final")
+        print(winner + " won!")
 
     what_next = input("\nEnter 1 to EXIT or any other key to restart:\n")
     if what_next == "1":
@@ -109,6 +136,7 @@ while True:
 
     if league_input == "3":
         micro()
+        continue
 
     team_input = team_choice(league_input)
 
