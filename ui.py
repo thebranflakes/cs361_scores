@@ -26,7 +26,7 @@ def league_choice():
 
 def team_choice(league):
     while True:
-        team = input("Which teams score did you want to check?\n"
+        team = input("Which teams score did you want to check? (City abbreviation)\n"
                      "OR\n"
                      "Enter 1 for List of teams\n"
                      "Enter 2 to restart\n"
@@ -97,17 +97,18 @@ def micro():
 
     # print out the number received
     quarter = random.randint(1, 5)
+    my_team = league[random.randint(0, len(league) - 1)]
     opponent = league[random.randint(0, len(league) - 1)]
     team_score = random.randint(2, lg_max)
     opp_score = random.randint(2, lg_max)
     winner = ""
 
     if team_score > opp_score:
-        winner = league[random.randint(0, len(league))]
+        winner = my_team
     if opp_score > team_score:
-        winner = league[random.randint(0, len(league))]
+        winner = opponent
 
-    print(winner + ": " + str(team_score))
+    print(my_team + ": " + str(team_score))
     print(opponent + ": " + str(opp_score))
 
     if quarter in [1, 2, 3, 4]:
